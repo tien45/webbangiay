@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/styles/main.css">
+    <title>Products</title>
+</head>
+<body>
+    <h1>Products</h1>
+    <a href="/products/add">Add New Product</a>
+    <ul>
+        <% products.forEach(product => { %>
+            <li>
+                <h2><%= product.name %></h2>
+                <p><%= product.description %></p>
+                <p>Price: $<%= product.price %></p>
+                <a href="/products/edit/<%= product._id %>">Edit</a>
+                <a href="/products/delete/<%= product._id %>" onclick="return confirm('Are you sure?');">Delete</a>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
